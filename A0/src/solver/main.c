@@ -4,7 +4,7 @@
 #include "stack.h"
 
 
-int main(int argc, char *argv[])
+int caca(int argc, char *argv[]) //main
 {
 	if (argc != 2)
 	{

@@ -11,7 +11,7 @@ Stack *stack_init()
 	//pointer = &new_stack;
 	pointer->abajo = NULL;
 	pointer->arriba = NULL;
-	pointer->tamaño = 0;
+	pointer->largo = 0;
 	return pointer;
 }
 
@@ -25,7 +25,7 @@ void push(Stack* stack, int color)
 		ptr_new_node->valor = color;
 		stack->abajo = ptr_new_node;
 		stack->arriba = ptr_new_node;
-		stack->tamaño++;
+		stack->largo++;
 	}
 	else {
 		Node *ptr_new_node;
@@ -33,7 +33,7 @@ void push(Stack* stack, int color)
 		ptr_new_node->anterior = stack->arriba;
 		ptr_new_node->valor = color;
 		stack->arriba = ptr_new_node;
-		stack->tamaño++;
+		stack->largo++;
 	}
 }
 
@@ -50,7 +50,7 @@ int pop(Stack* stack)
 		valor = pop_node->valor;
 		stack->arriba = pop_node->anterior;
 		free(pop_node);
-		stack->tamaño--;
+		stack->largo--;
 		return valor;
 	}
 }
@@ -58,12 +58,12 @@ int pop(Stack* stack)
 void destroy(Stack *stack)
 {
 	/* Aqui agrega tu código */
-	while (stack->tamaño > 0) {  //se puede hacer con un for tambien
+	while (stack->largo > 0) {  //se puede hacer con un for tambien
 		Node *pop_node;
 		pop_node = stack->arriba;
 		stack->arriba = pop_node->anterior;
 		free(pop_node);
-		stack->tamaño--;
+		stack->largo--;
 	}
 	free(stack);
 }

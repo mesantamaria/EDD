@@ -18,7 +18,7 @@ struct stack
 	/* Aqui agrega tu código */
 	Node *arriba;
 	Node *abajo;
-	int tamaño;
+	int largo;
 };
 
 
